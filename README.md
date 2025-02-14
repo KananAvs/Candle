@@ -1,6 +1,7 @@
 # Candle - The E-commerce Site for Beautiful Candles 🕯️✨
 
 Welcome to the **Candle** project! This is a simple yet elegant e-commerce site dedicated to selling candles, designed to provide an easy and intuitive shopping experience. 🌟
+- **Visit the site:** [Candle](https://kananavs.github.io/Candle)
 
 ---
 
@@ -101,6 +102,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or feedback, feel free to reach out!
 
-- **Discord**: KananAvs
+- **Discord**: [KananAvs](https://discordapp.com/users/KananAvs)
 - **GitHub**: [KananAvs](https://github.com/KananAvs)
 - **LinkedIn**: [KananAvs](https://linkedin.com/in/KananAvs)
