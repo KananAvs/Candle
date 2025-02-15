@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "postbuild": "copyfiles -u 1 dist/index.html dist/404.html",
+    "postbuild": "shx cp dist/index.html dist/404.html",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -35,6 +35,7 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
+    "shx": "^0.3.4",
     "vite": "^6.1.0"
   },
   "homepage": "https://KananAvs.github.io/Candle/"

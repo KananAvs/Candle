@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/Candle">
+    <Router basename="/Candle/">
       <div className="d-flex flex-column min-vh-100">
         <Navigation />
         <main className="flex-grow-1 py-4">
