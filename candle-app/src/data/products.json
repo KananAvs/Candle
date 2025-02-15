@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "image": "candle1.jpg",
+        "name": "Vanilla Bliss Candle",
+        "color": "White",
+        "shape": "Round",
+        "price": 12.99
+    },
+    {
+        "id": 2,
+        "image": "candle2.jpg",
+        "name": "Rose Garden Candle",
+        "color": "Pink",
+        "shape": "Square",
+        "price": 15.99
+    },
+    {
+        "id": 3,
+        "image": "candle3.jpg",
+        "name": "Lavender Dreams Candle",
+        "color": "Lavender",
+        "shape": "Tall",
+        "price": 18.5
+    },
+    {
+        "id": 4,
+        "image": "candle4.jpg",
+        "name": "Citrus Zest Candle",
+        "color": "Yellow",
+        "shape": "Cylinder",
+        "price": 14.75
+    },
+    {
+        "id": 5,
+        "image": "candle5.jpg",
+        "name": "Midnight Mystique Candle",
+        "color": "Black",
+        "shape": "Heart",
+        "price": 20.0
+    },
+    {
+        "id": 6,
+        "image": "candle6.jpg",
+        "name": "Ocean Breeze Candle",
+        "color": "Blue",
+        "shape": "Round",
+        "price": 16.5
+    },
+    {
+        "id": 7,
+        "image": "candle7.jpg",
+        "name": "Forest Whisper Candle",
+        "color": "Green",
+        "shape": "Tall",
+        "price": 17.25
+    },
+    {
+        "id": 8,
+        "image": "candle8.jpg",
+        "name": "Amber Glow Candle",
+        "color": "Amber",
+        "shape": "Cylinder",
+        "price": 19.0
+    },
+    {
+        "id": 9,
+        "image": "candle9.jpg",
+        "name": "Jasmine Serenity Candle",
+        "color": "White",
+        "shape": "Square",
+        "price": 13.5
+    },
+    {
+        "id": 10,
+        "image": "candle10.jpg",
+        "name": "Peach Paradise Candle",
+        "color": "Peach",
+        "shape": "Round",
+        "price": 15.5
+    },
+    {
+        "id": 11,
+        "image": "candle11.jpg",
+        "name": "Mango Sunset Candle",
+        "color": "Orange",
+        "shape": "Tall",
+        "price": 18.75
+    },
+    {
+        "id": 12,
+        "image": "candle12.jpg",
+        "name": "Sandalwood Spice Candle",
+        "color": "Brown",
+        "shape": "Cylinder",
+        "price": 21.0
+    },
+    {
+        "id": 13,
+        "image": "candle13.jpg",
+        "name": "Honeycomb Delight Candle",
+        "color": "Golden",
+        "shape": "Heart",
+        "price": 16.99
+    },
+    {
+        "id": 14,
+        "image": "candle14.jpg",
+        "name": "Cocoa Comfort Candle",
+        "color": "Chocolate",
+        "shape": "Round",
+        "price": 14.25
+    },
+    {
+        "id": 15,
+        "image": "candle15.jpg",
+        "name": "Lemon Twist Candle",
+        "color": "Lemon",
+        "shape": "Square",
+        "price": 13.75
+    },
+    {
+        "id": 16,
+        "image": "candle16.jpg",
+        "name": "Minty Fresh Candle",
+        "color": "Mint Green",
+        "shape": "Tall",
+        "price": 17.5
+    },
+    {
+        "id": 17,
+        "image": "candle17.jpg",
+        "name": "Berry Burst Candle",
+        "color": "Red",
+        "shape": "Cylinder",
+        "price": 19.25
+    },
+    {
+        "id": 18,
+        "image": "candle18.jpg",
+        "name": "Sunflower Shine Candle",
+        "color": "Yellow",
+        "shape": "Round",
+        "price": 15.25
+    },
+    {
+        "id": 19,
+        "image": "candle19.jpg",
+        "name": "Pine Forest Candle",
+        "color": "Forest Green",
+        "shape": "Square",
+        "price": 18.0
+    },
+    {
+        "id": 20,
+        "image": "candle20.jpg",
+        "name": "Crimson Charm Candle",
+        "color": "Crimson",
+        "shape": "Heart",
+        "price": 20.5
+    }
+]

@@ -1,0 +1,14 @@
+.footer {
+  background-color: #ffe6f2;
+  margin-top: auto;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: #495057;
+  transition: color 0.2s ease-in-out;
+}
+
+.icon:hover {
+  color: #007bff;
+}
