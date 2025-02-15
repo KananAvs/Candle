@@ -26,7 +26,7 @@ const StorePage = () => {
           count={totalPages}
           page={page}
           onChange={handleChange}
-          color="primary"
+          color="standard"
         />
       </div>
       <Row>
@@ -41,7 +41,7 @@ const StorePage = () => {
           count={totalPages}
           page={page}
           onChange={handleChange}
-          color="primary"
+          color="standard"
         />
       </div>
     </Container>

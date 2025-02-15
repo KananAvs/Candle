@@ -1,20 +1,29 @@
 body {
-  background-color: #f8f9fa;
+  background: 
+    linear-gradient(
+      to bottom right,
+      hsl(0, 50%, 100%),
+      hsl(0, 50%, 70%)
+    ),
+    repeating-radial-gradient(
+      circle at 10% 10%,
+      rgba(185, 85, 125, 0.05) 0,
+      rgba(185, 85, 125, 0.05) 5px,
+      transparent 15px,
+      transparent 50px
+    ),
+    repeating-radial-gradient(
+      circle at 90% 90%,
+      rgba(185, 85, 125, 0.05) 0,
+      rgba(185, 85, 125, 0.05) 5px,
+      transparent 15px,
+      transparent 50px
+    );
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-.bg-pastel-pink {
-  background-color: #ffe6f2;
-}
-
-.nav-link {
-  color: #495057;
-  transition: color 0.2s ease-in-out;
-}
-
-.nav-link:hover {
-  color: #007bff;
 }
