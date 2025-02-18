@@ -5,7 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const imagePath = new URL(`../../assets/images/${product.image}`, import.meta.url).href;
+  const imagePath = new URL(`../../assets/product-images/${product.image}`, import.meta.url).href;
 
   return (
     <Card className="h-100 card">

@@ -3,7 +3,7 @@ import { Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import favicon from '../../assets/favicon-32x32.png';
+import favicon from '../../assets/images/candle-32x32.png';
 import './Navigation.css';
 
 const Navigation = () => {
