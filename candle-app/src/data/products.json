@@ -1,162 +1,122 @@
 [
     {
         "id": 1,
-        "image": "candle1.jpg",
-        "name": "Vanilla Bliss Candle",
-        "color": "White",
-        "shape": "Round",
+        "name": "Teddy Bear",
+        "description": "Snuggle up with childhood nostalgia! This warm vanilla-honey blend wrapped in cashmere undertones will cradle you in comforting familiarity.",
         "price": 12.99
     },
     {
         "id": 2,
-        "image": "candle2.jpg",
-        "name": "Rose Garden Candle",
-        "color": "Pink",
-        "shape": "Square",
+        "name": "Dancing Lady",
+        "description": "Elegance in motion! A sophisticated fusion of night-blooming jasmine and bergamot that pirouettes through your senses like silk.",
         "price": 15.99
     },
     {
         "id": 3,
-        "image": "candle3.jpg",
-        "name": "Lavender Dreams Candle",
-        "color": "Lavender",
-        "shape": "Tall",
-        "price": 18.5
+        "name": "Squirrel Hug",
+        "description": "Nature's embrace captured in wax! Earthy oakmoss meets playful apple blossoms, perfect for cozying up with a good book.",
+        "price": 18.99
     },
     {
         "id": 4,
-        "image": "candle4.jpg",
-        "name": "Citrus Zest Candle",
-        "color": "Yellow",
-        "shape": "Cylinder",
-        "price": 14.75
+        "name": "Bear & Maugli",
+        "description": "Wild adventure awaits! Jungle-grown cardamom and wild fig create an exotic duet of spice and sweetness.",
+        "price": 14.99
     },
     {
         "id": 5,
-        "image": "candle5.jpg",
-        "name": "Midnight Mystique Candle",
-        "color": "Black",
-        "shape": "Heart",
-        "price": 20.0
+        "name": "Royal Vanilla",
+        "description": "Regal indulgence fit for queens! Madagascar vanilla bean infused with golden amber - a crown jewel of fragrances.",
+        "price": 24.99
     },
     {
         "id": 6,
-        "image": "candle6.jpg",
-        "name": "Ocean Breeze Candle",
-        "color": "Blue",
-        "shape": "Round",
-        "price": 16.5
-    },
-    {
-        "id": 7,
-        "image": "candle7.jpg",
-        "name": "Forest Whisper Candle",
-        "color": "Green",
-        "shape": "Tall",
-        "price": 17.25
-    },
-    {
-        "id": 8,
-        "image": "candle8.jpg",
-        "name": "Amber Glow Candle",
-        "color": "Amber",
-        "shape": "Cylinder",
-        "price": 19.0
-    },
-    {
-        "id": 9,
-        "image": "candle9.jpg",
-        "name": "Jasmine Serenity Candle",
-        "color": "White",
-        "shape": "Square",
-        "price": 13.5
-    },
-    {
-        "id": 10,
-        "image": "candle10.jpg",
-        "name": "Peach Paradise Candle",
-        "color": "Peach",
-        "shape": "Round",
-        "price": 15.5
-    },
-    {
-        "id": 11,
-        "image": "candle11.jpg",
-        "name": "Mango Sunset Candle",
-        "color": "Orange",
-        "shape": "Tall",
-        "price": 18.75
-    },
-    {
-        "id": 12,
-        "image": "candle12.jpg",
-        "name": "Sandalwood Spice Candle",
-        "color": "Brown",
-        "shape": "Cylinder",
-        "price": 21.0
-    },
-    {
-        "id": 13,
-        "image": "candle13.jpg",
-        "name": "Honeycomb Delight Candle",
-        "color": "Golden",
-        "shape": "Heart",
+        "name": "Red Secret",
+        "description": "Seduction in every flicker! Black currant and smoked patchouli whisper mysteries only firelight can reveal.",
         "price": 16.99
     },
     {
+        "id": 7,
+        "name": "Baby Fox",
+        "description": "Playful innocence perfected! A fuzzy blend of peach nectar and whipped cream that'll steal your heart.",
+        "price": 17.99
+    },
+    {
+        "id": 8,
+        "name": "King Aslan",
+        "description": "Roar with confidence! Majestic sandalwood and lion's mane mushroom extract command respect in every room.",
+        "price": 22.99
+    },
+    {
+        "id": 9,
+        "name": "Caramel Geometry",
+        "description": "Modern decadence defined! Precise angles of burnt caramel balance perfectly with round vanilla orchid notes.",
+        "price": 13.99
+    },
+    {
+        "id": 10,
+        "name": "Blooming Flower",
+        "description": "Spring eternal! A bouquet of peony, gardenia, and dewy grass bursting with fresh optimism.",
+        "price": 15.99
+    },
+    {
+        "id": 11,
+        "name": "Victorias Hand",
+        "description": "Victorian elegance reimagined! Delicate lace of rose absolute interwoven with herbal lavender sophistication.",
+        "price": 19.99
+    },
+    {
+        "id": 12,
+        "name": "Wood & Fire",
+        "description": "Crackling cabin charm! Smoked teak and ember-kissed cedar create your personal hearthside retreat.",
+        "price": 24.99
+    },
+    {
+        "id": 13,
+        "name": "Scarlet Gold",
+        "description": "Luxury incarnate! Ripe pomegranate dipped in liquid saffron and amber - Midas' touch for your home.",
+        "price": 17.99
+    },
+    {
         "id": 14,
-        "image": "candle14.jpg",
-        "name": "Cocoa Comfort Candle",
-        "color": "Chocolate",
-        "shape": "Round",
-        "price": 14.25
+        "name": "Japanese Garden",
+        "description": "Zen in every breath! Green tea serenity meets Zen garden minerals and whispering bamboo.",
+        "price": 14.99
     },
     {
         "id": 15,
-        "image": "candle15.jpg",
-        "name": "Lemon Twist Candle",
-        "color": "Lemon",
-        "shape": "Square",
-        "price": 13.75
+        "name": "Romeos Love",
+        "description": "Eternal romance bottled! Passionate red roses mingling with lovestruck strawberry kisses.",
+        "price": 13.99
     },
     {
         "id": 16,
-        "image": "candle16.jpg",
-        "name": "Minty Fresh Candle",
-        "color": "Mint Green",
-        "shape": "Tall",
-        "price": 17.5
+        "name": "White Rose",
+        "description": "Pure sophistication! Alabaster petals of creamy gardenia floating in champagne effervescence.",
+        "price": 17.99
     },
     {
         "id": 17,
-        "image": "candle17.jpg",
-        "name": "Berry Burst Candle",
-        "color": "Red",
-        "shape": "Cylinder",
-        "price": 19.25
+        "name": "Magical Night",
+        "description": "Enchantment under moonlight! Midnight violet dusted with starlit vanilla and a wisp of dragon's blood.",
+        "price": 19.99
     },
     {
         "id": 18,
-        "image": "candle18.jpg",
-        "name": "Sunflower Shine Candle",
-        "color": "Yellow",
-        "shape": "Round",
-        "price": 15.25
+        "name": "Lavender Dreams",
+        "description": "Sleep's sweet lullaby! French lavender fields kissed by moonlit vanilla and stress-melting chamomile.",
+        "price": 15.99
     },
     {
         "id": 19,
-        "image": "candle19.jpg",
-        "name": "Pine Forest Candle",
-        "color": "Forest Green",
-        "shape": "Square",
-        "price": 18.0
+        "name": "Spartan Queen",
+        "description": "Fierce femininity unleashed! Leather-bound history books meet triumphant orange blossom conquests.",
+        "price": 18.99
     },
     {
         "id": 20,
-        "image": "candle20.jpg",
-        "name": "Crimson Charm Candle",
-        "color": "Crimson",
-        "shape": "Heart",
-        "price": 20.5
+        "name": "Cinnamon & Apple",
+        "description": "Autumn's warm hug! Fresh-picked apples dancing with spicy cinnamon sticks by the fireside.",
+        "price": 20.99
     }
 ]
