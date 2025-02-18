@@ -16,9 +16,10 @@
     align-items: center;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: #e2a3c2 !important;
-    scale: 1.2;
+    transform: scale(1.2);
 }
 
 .brand-container {
@@ -34,12 +35,14 @@
     transition: all 0.3s ease-in-out;
 }
 
-.brand-container:hover .brand-icon {
+.brand-container:hover .brand-icon,
+.brand-container.active .brand-icon {
     transform: scale(1.2);
 }
 
-/* White glow effect */
-.brand-container:hover::after {
+/* White glow effect for hover and active state */
+.brand-container:hover::after,
+.brand-container.active::after {
     content: '';
     position: absolute;
     top: 50%;
