@@ -2,15 +2,15 @@
     position: relative;
     max-width: 600px;
     margin: 0 auto;
-  }
-  
-  .image-container {
+}
+
+.image-container {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-  }
-  
-  .image-overlay {
+}
+
+.image-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -18,54 +18,61 @@
     background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.7) 100%);
     padding: 1rem;
     color: white;
-  }
-  
-  .product-info h3 {
+}
+
+.product-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-  }
-  
-  .price-container {
+}
+
+.price-container {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
-  
-  .price {
+}
+
+.price {
     font-size: 1.2rem;
     font-weight: bold;
-  }
-  
-  .cart-icon {
+}
+
+.cart-icon {
     color: white;
     transition: transform 0.2s;
-  }
-  
-  .cart-icon:hover {
+}
+
+.cart-icon:hover {
     transform: scale(1.1);
-  }
-  
-  .custom-indicators {
+}
+
+.custom-indicators {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     margin-top: 1rem;
-  }
-  
-  .indicator-line {
-    height: 2px;
+}
+
+.indicator-line {
+    height: 4px;
     width: 40px;
     background-color: #e0e0e0;
     overflow: hidden;
     border-radius: 2px;
-  }
-  
-  .indicator-line.active {
+    position: relative;
+}
+
+.indicator-line.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     background-color: #f48fb1;
-    animation: progress 3s linear;
-  }
-  
-  @keyframes progress {
-    from { width: 0 }
-    to { width: 40px }
-  }
+    animation: progress 5s linear infinite;
+}
+
+@keyframes progress {
+    from { width: 0; }
+    to { width: 100%; }
+}

@@ -1,23 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Carousel } from 'react-bootstrap';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './Carousel.css';
 
 const ProductCarousel = ({ products }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  const startInterval = () => {
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % products.length);
+    }, 5000);
+  };
+
+  const resetInterval = () => {
+    clearInterval(intervalRef.current);
+    startInterval();
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % products.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    startInterval();
+    return () => clearInterval(intervalRef.current);
   }, [products.length]);
+
+  const handleSelect = (selectedIndex) => {
+    setActiveIndex(selectedIndex);
+    resetInterval();
+  };
 
   return (
     <div className="product-carousel">
       <Carousel
         activeIndex={activeIndex}
-        onSelect={setActiveIndex}
+        onSelect={handleSelect}
         indicators={false}
         interval={null}
         fade
