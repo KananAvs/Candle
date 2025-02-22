@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import useCart from '../../hooks/useCart';
 
 const AddToCartButton = ({ product }) => {
   const [show, setShow] = useState(false);
+  const { addToCart } = useCart();
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
   const handleAddToCart = () => {
-    // Functionality will be added for adding the product to the cart
+    addToCart(product);
     handleClose();
   };
 

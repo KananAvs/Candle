@@ -1,26 +1,25 @@
 import React from 'react';
 import { Container, Table, Button } from 'react-bootstrap';
+import useCart from '../hooks/useCart';
 
 const CartPage = () => {
-  const cartItems = [
-    { id: 1, name: 'Vanilla Candle', price: 15.99, quantity: 2 },
-    { id: 2, name: 'Rose Candle', price: 18.99, quantity: 1 },
-  ];
+  const { cart } = useCart();
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   return (
     <Container>
       <h2 className="my-4">Your Cart</h2>
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -28,8 +27,15 @@ const CartPage = () => {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map(item => (
+              {cart.map(item => (
                 <tr key={item.id}>
+                  <td>
+                    <img
+                      src={new URL(`../assets/product-images/${item.id}.jpg`, import.meta.url).href}
+                      alt={item.name}
+                      style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                    />
+                  </td>
                   <td>{item.name}</td>
                   <td>${item.price.toFixed(2)}</td>
                   <td>{item.quantity}</td>
