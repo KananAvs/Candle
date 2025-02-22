@@ -1,41 +1,37 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Facebook, Instagram, LinkedIn, GitHub } from '@mui/icons-material';
 import styles from './Footer.module.css';
 
-const Footer = () => {
-  return (
-    <footer className={styles.footer}>
-      <Container className="py-4">
-        <Row className="justify-content-center mb-3">
-          <Col xs="auto" className="d-flex gap-4">
-            <a href="https://facebook.com/KananAvs" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-              <Facebook className={styles.icon} />
-            </a>
-            <a href="https://instagram.com/KananAvs" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-              <Instagram className={styles.icon} />
-            </a>
-            <a href="https://linkedin.com/in/KananAvs" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-              <LinkedIn className={styles.icon} />
-            </a>
-            <a href="https://github.com/KananAvs" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-              <GitHub className={styles.icon} />
-            </a>
-          </Col>
-        </Row>
-        <Row className="text-center">
-          <Col>
-            <p className={`mb-1 ${styles.footerText}`}>
-              &copy; {new Date().getFullYear()} Candle. All rights reserved.
-            </p>
-            <p className={styles.footerText}>
-              Explore our exclusive collection of handmade scented candles.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    </footer>
-  );
-};
+const socialLinks = [
+  { Icon: Facebook, url: 'https://facebook.com/KananAvs' },
+  { Icon: Instagram, url: 'https://instagram.com/KananAvs' },
+  { Icon: LinkedIn, url: 'https://linkedin.com/in/KananAvs' },
+  { Icon: GitHub, url: 'https://github.com/KananAvs' }
+];
+
+const Footer = () => (
+  <footer className={styles.footer}>
+    <Container className={styles.container}>
+      <div className={styles.socialLinks}>
+        {socialLinks.map(({ Icon, url }) => (
+          <a
+            key={url}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.iconLink}
+          >
+            <Icon className={styles.icon} />
+          </a>
+        ))}
+      </div>
+      <div className={styles.content}>
+        <p className={styles.text}>&copy; {new Date().getFullYear()} Candle. All rights reserved.</p>
+        <p className={styles.text}>Explore our exclusive collection of handmade scented candles.</p>
+      </div>
+    </Container>
+  </footer>
+);
 
 export default Footer;

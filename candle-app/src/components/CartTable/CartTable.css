@@ -1,0 +1,20 @@
+.cart-row {
+    background-color: hsla(0, 0.00%, 100.00%, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 0;
+    position: relative;
+  }
+  
+  .cart-image {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .cart-image {
+      max-height: 100px;
+    }
+  }
+  

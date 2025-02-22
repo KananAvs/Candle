@@ -1,52 +1,45 @@
 import React from "react";
 import { Navbar, Container } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { ShoppingBag, ShoppingCart } from "@mui/icons-material";
+import { Badge } from "@mui/material";
 import favicon from "../../assets/images/candle-32x32.png";
 import useCart from "../../hooks/useCart";
-import "./Navigation.css";
+import styles from "./Navigation.module.css";
 
 const Navigation = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const { cart } = useCart();
+  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const isActive = (path) => location.pathname === path;
-
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const NavLink = ({ to, children }) => (
+    <Link 
+      to={to} 
+      className={`${styles.navLink} ${pathname === to ? styles.active : ""}`}
+    >
+      {children}
+    </Link>
+  );
 
   return (
-    <Navbar className="custom-navbar" variant="dark">
-      <Container className="d-flex justify-content-center">
-        <div className="d-flex align-items-center nav-items-container">
-          {/* Store Icon */}
-          <Link
-            to="/store"
-            className={`nav-link px-3 ${isActive("/store") ? "active" : ""}`}
+    <Navbar className={styles.navbar}>
+      <Container className={styles.container}>
+        <nav className={styles.nav}>
+          <NavLink to="/store">
+            <ShoppingBag sx={{ fontSize: "1.8rem" }} />
+          </NavLink>
+          <Link 
+            to="/" 
+            className={`${styles.brandLink} ${pathname === "/" ? styles.active : ""}`}
           >
-            <ShoppingBagIcon style={{ fontSize: "1.8rem" }} />
+            <img src={favicon} alt="Candle Logo" className={styles.brandIcon} />
           </Link>
-
-          {/* Brand Icon */}
-          <Link
-            to="/"
-            className={`brand-container mx-4 ${isActive("/") ? "active" : ""}`}
-          >
-            <img src={favicon} alt="Candle Logo" className="brand-icon" />
-          </Link>
-
-          {/* Cart Icon */}
-          <Link
-            to="/cart"
-            className={`nav-link px-3 ${isActive("/cart") ? "active" : ""}`}
-            style={{ position: "relative" }}
-          >
-            <ShoppingCartIcon style={{ fontSize: "1.8rem" }} />
-            {totalItems > 0 && (
-              <span className="cart-badge">{totalItems}</span>
-            )}
-          </Link>
-        </div>
+          <NavLink to="/cart">
+            <Badge badgeContent={cartItemCount} color="error" max={99}>
+              <ShoppingCart />
+            </Badge>
+          </NavLink>
+        </nav>
       </Container>
     </Navbar>
   );

@@ -1,0 +1,62 @@
+.navbar {
+    background-color: hsla(210, 29%, 24%, 0.7);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+    padding-top: 10px;
+    margin: auto;
+}
+
+.navLink {
+    color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.navLink:hover,
+.navLink.active {
+    color: #e2a3c2;
+    transform: scale(1.2);
+}
+
+.brandLink {
+    position: relative;
+    display: flex;
+    margin: 0 1rem;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.brandIcon {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.brandLink:hover .brandIcon,
+.brandLink.active .brandIcon {
+    transform: scale(1.2);
+}
+
+.brandLink:hover::after,
+.brandLink.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
