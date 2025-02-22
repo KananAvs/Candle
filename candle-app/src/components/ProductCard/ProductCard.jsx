@@ -1,40 +1,54 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Card, Button, Row, Col } from 'react-bootstrap';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCallback, useEffect } from 'react';
+import { Card, Row, Col } from 'react-bootstrap';
+import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const imagePath = new URL(`../../assets/product-images/${product.id}.jpg`, import.meta.url).href;
+  const generateSlug = useCallback(
+    (name) => `Candle/${name.replace(/\s+/g, '-')}`,
+    []
+  );
+
+  const handleCardClick = () => {
+    window.location.assign(`/${generateSlug(product.name)}`);
+  };
+
+  const handleAddToCartClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const imageUrl = new URL(`../../assets/product-images/${product.id}.jpg`, import.meta.url).href;
+
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      document.body.classList.add('mobile');
+    } else {
+      document.body.classList.remove('mobile');
+    }
+  }, []);
 
   return (
-    <Card className="h-100 card">
-      <Card.Img variant="top" src={imagePath} alt={product.name} />
-      <Card.Body>
-        <Row>
-          <Col xs={10} sm={12} md={12} lg={12} xl={12} xxl={10}>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>${product.price.toFixed(2)}</Card.Text>
+    <Card className="product-card shadow-hover" onClick={handleCardClick}>
+      <Card.Img
+        variant="top"
+        src={imageUrl}
+        alt={product.name}
+        className="img-scale-hover"
+      />
+      <Card.ImgOverlay className="d-flex flex-column justify-content-end product-overlay">
+        <Row className="g-2">
+          <Col>
+            <Card.Title className="text-white mb-0">{product.name}</Card.Title>
+            <Card.Text className="text-white fw-bold mb-0">${product.price}</Card.Text>
           </Col>
-          <Col xs={2} sm={12} md={12} lg={12} xl={12} xxl={2}
-          className="d-flex align-items-center justify-content-end">
-            <Button variant="light">
-              <ShoppingCartIcon />
-            </Button>
+          <Col xs="auto" className="add-to-cart-col" onClick={handleAddToCartClick}>
+            <AddToCartButton product={product} />
           </Col>
         </Row>
-      </Card.Body>
+      </Card.ImgOverlay>
     </Card>
   );
-};
-
-ProductCard.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.number,
-  }).isRequired,
 };
 
 export default ProductCard;
