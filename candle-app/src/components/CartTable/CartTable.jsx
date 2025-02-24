@@ -1,7 +1,75 @@
 import React from 'react';
 import { Row, Col, Image, Form, Button } from 'react-bootstrap';
+import { Add, Remove, Delete } from '@mui/icons-material';
 import useCart from '../../hooks/useCart';
+import { formatPrice } from '../../utils/formatPrice';
 import './CartTable.css';
+
+const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
+  const handleInputChange = (e) => {
+    const value = parseInt(e.target.value, 10);
+    if (!isNaN(value) && value >= 1 && value <= 999) {
+      onUpdateQuantity(item.id, value);
+    }
+  };
+
+  return (
+    <div className="cart-row">
+      <Col xs={3} lg={2} className="p-0">
+        <Image
+          src={new URL(`../../assets/product-images/${item.id}.jpg`, import.meta.url).href}
+          alt={item.name}
+          className="cart-image"
+        />
+      </Col>
+      <Col xs={9} lg={10} className="cart-content">
+        <Row className="align-items-center h-100">
+          <Col xs={12} lg={6}>
+            <h4 className="mb-1">{item.name}</h4>
+            <div className="mb-1">{formatPrice(item.price)}</div>
+            <div>Total: {formatPrice(item.price * item.quantity)}</div>
+          </Col>
+          <Col xs={10} lg={5}>
+            <div className="quantity-control">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+              >
+                <Remove fontSize="small" />
+              </Button>
+              <Form.Control
+                type="number"
+                value={item.quantity}
+                onChange={handleInputChange}
+                min="1"
+                max="999"
+              />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+              >
+                <Add fontSize="small" />
+              </Button>
+            </div>
+          </Col>
+          <Col xs={2} lg={1} className="p-0">
+            <div className="delete-button">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onRemove(item.id)}
+              >
+                <Delete fontSize="small" />
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </Col>
+    </div>
+  );
+};
 
 const CartTable = ({ cart }) => {
   const { updateCart, removeFromCart } = useCart();
@@ -12,57 +80,15 @@ const CartTable = ({ cart }) => {
     }
   };
 
-  const handleRemoveItem = (productId) => {
-    removeFromCart(productId);
-  };
-
   return (
-    <div className="mt-4">
+    <div className="cart-table mt-4">
       {cart.map((item) => (
-        <div key={item.id} className="cart-row position-relative mb-4">
-          <Row className="align-items-center">
-            <Col xs={3} className="p-0">
-              <Image
-                src={new URL(`../../assets/product-images/${item.id}.jpg`, import.meta.url).href}
-                alt={item.name}
-                fluid
-                className="cart-image"
-              />
-            </Col>
-            <Col xs={9}>
-              <Row className="align-items-center">
-                <Col md={3} className="mb-2 mb-md-0">
-                  <h5 className="m-0">{item.name}</h5>
-                </Col>
-                <Col md={3} className="mb-2 mb-md-0">
-                  <Form.Control
-                    type="number"
-                    value={item.quantity}
-                    onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                    min="1"
-                    max="999"
-                  />
-                </Col>
-                <Col md={3} className="mb-2 mb-md-0">
-                  Price: ${item.price.toFixed(2)}
-                </Col>
-                {item.quantity > 1 && (
-                  <Col md={3} className="text-md-right">
-                    <strong>Subtotal: ${(item.price * item.quantity).toFixed(2)}</strong>
-                  </Col>
-                )}
-              </Row>
-            </Col>
-          </Row>
-          <Button
-            variant="light"
-            size="sm"
-            className="position-absolute top-0 end-0 m-2"
-            onClick={() => handleRemoveItem(item.id)}
-          >
-            X
-          </Button>
-        </div>
+        <CartItem
+          key={item.id}
+          item={item}
+          onUpdateQuantity={handleQuantityChange}
+          onRemove={removeFromCart}
+        />
       ))}
     </div>
   );

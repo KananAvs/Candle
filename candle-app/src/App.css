@@ -1,3 +1,47 @@
+:root {
+  /* Shadows */
+  --shadow-sm: 0 0 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 0 15px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 0 20px rgba(0, 0, 0, 0.7);
+
+  /* Border Radius */
+  --radius-sm: 10px;
+  --radius-md: 15px;
+  --radius-lg: 20px;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --scale-hover: 1.05;
+}
+
+/* Update base button styles */
+.btn {
+  border-radius: var(--radius-sm) !important;
+  transition: all var(--transition-speed) ease-in-out !important;
+}
+
+.btn:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: scale(var(--scale-hover)) !important;
+}
+.btn:active {
+  transform: scale(0.9) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1) !important;
+}
+
+.btn-primary {
+  background-color: hsl(1, 100%, 70%) !important;
+  border-color: hsl(1, 100%, 70%) !important;
+  color: white !important;
+}
+.btn-primary:hover {
+  background-color: hsl(1, 100%, 60%) !important;
+  border-color: hsl(1, 100%, 60%) !important;
+}
+.btn-primary:active {
+  background-color: hsl(1, 100%, 50%) !important;
+}
+
 body {
   background:
     linear-gradient(to bottom right,
@@ -21,31 +65,4 @@ body {
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Base Button Styles */
-.btn {
-  transition: all 0.2s ease-in-out !important;
-  border-radius: 10px !important;
-}
-.btn:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
-}
-.btn:active {
-  transform: scale(0.9) !important;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 1) !important;
-}
-
-/* Primary Button (Main CTA) */
-.btn-primary {
-  background-color: hsl(1, 100%, 70%) !important;
-  border-color: hsl(1, 100%, 70%) !important;
-  color: white !important;
-}
-.btn-primary:hover {
-  background-color: hsl(1, 100%, 60%) !important;
-  border-color: hsl(1, 100%, 60%) !important;
-}
-.btn-primary:active {
-  background-color: hsl(1, 100%, 50%) !important;
 }

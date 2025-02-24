@@ -1,11 +1,11 @@
 .custom-carousel-wrapper {
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .custom-carousel-wrapper:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    box-shadow: var(--shadow-lg);
 }
 
 .carousel-image {
@@ -13,7 +13,7 @@
 }
 
 .carousel-image:hover {
-    transform: scale(1.05);
+    transform: scale(var(--scale-hover));
     cursor: pointer;
 }
 
