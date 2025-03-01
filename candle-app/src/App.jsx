@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import StorePage from './pages/StorePage';
 import CartPage from './pages/CartPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ProductPage from './pages/ProductPage';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
 import Container from 'react-bootstrap/Container';
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/store" element={<StorePage />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/:productSlug" element={<ProductPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Container>

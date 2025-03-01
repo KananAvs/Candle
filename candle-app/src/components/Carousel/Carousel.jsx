@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
+import { navigateToProduct } from '../../utils/routeHelpers';
 import './Carousel.css';
 
 const ControlledCarousel = ({ products }) => {
   const [index, setIndex] = useState(0);
-
-  const generateSlug = (name) => `Candle/${name.replace(/\s+/g, '-')}`;
+  const navigate = useNavigate();
 
   return (
     <div className="custom-carousel-wrapper">
@@ -19,7 +20,7 @@ const ControlledCarousel = ({ products }) => {
           return (
             <Carousel.Item
               key={product.id}
-              onClick={() => window.location.assign(`/${generateSlug(product.name)}`)}
+              onClick={() => navigateToProduct(navigate, product.name)}
             >
               <img
                 className="d-block w-100 carousel-image"

@@ -1,16 +1,15 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
+import { navigateToProduct } from '../../utils/routeHelpers';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const generateSlug = useCallback(
-    (name) => `Candle/${name.replace(/\s+/g, '-')}`,
-    []
-  );
+  const navigate = useNavigate();
 
   const handleCardClick = () => {
-    window.location.assign(`/${generateSlug(product.name)}`);
+    navigateToProduct(navigate, product.name);
   };
 
   const handleAddToCartClick = (e) => {

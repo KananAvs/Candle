@@ -1,11 +1,15 @@
 import React from 'react';
 import { Row, Col, Image, Form, Button } from 'react-bootstrap';
 import { Add, Remove, Delete } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import { formatPrice } from '../../utils/formatPrice';
+import { navigateToProduct } from '../../utils/routeHelpers';
 import './CartTable.css';
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
+  const navigate = useNavigate();
+  
   const handleInputChange = (e) => {
     const value = parseInt(e.target.value, 10);
     if (!isNaN(value) && value >= 1 && value <= 999) {
@@ -13,8 +17,16 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
     }
   };
 
+  const handleRowClick = () => {
+    navigateToProduct(navigate, item.name);
+  };
+
+  const handleControlClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className="cart-row">
+    <div className="cart-row" onClick={handleRowClick}>
       <Col xs={3} lg={2} className="p-0">
         <Image
           src={new URL(`../../assets/product-images/${item.id}.jpg`, import.meta.url).href}
@@ -30,7 +42,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
             <div>Total: {formatPrice(item.price * item.quantity)}</div>
           </Col>
           <Col xs={10} lg={5}>
-            <div className="quantity-control">
+            <div className="quantity-control" onClick={handleControlClick}>
               <Button
                 variant="ghost"
                 size="sm"
@@ -55,7 +67,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
             </div>
           </Col>
           <Col xs={2} lg={1} className="p-0">
-            <div className="delete-button">
+            <div className="delete-button" onClick={handleControlClick}>
               <Button
                 variant="ghost"
                 size="sm"

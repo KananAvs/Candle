@@ -11,6 +11,7 @@
   margin-bottom: 1rem;
   min-height: 150px;
   display: flex;
+  cursor: pointer;
 }
 
 .cart-row:hover {
