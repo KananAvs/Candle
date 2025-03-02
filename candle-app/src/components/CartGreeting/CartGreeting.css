@@ -1,0 +1,106 @@
+.greeting-container {
+    padding: 0 1rem;
+}
+
+.greeting-paper {
+    background-color: rgba(255, 255, 255, 0.01) !important;
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: var(--radius-lg) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.greeting-paper:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.greeting-title {
+    margin-bottom: 0.5rem !important;
+    color: #2c3e50;
+    font-weight: 600 !important;
+}
+
+.greeting-subtitle {
+    color: #34495e;
+    margin-bottom: 1rem !important;
+}
+
+.cart-message {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.empty-cart-content {
+    margin-top: 1.5rem;
+}
+
+.empty-cart-message {
+    color: #95a5a6;
+    margin-bottom: 0.5rem !important;
+}
+
+.suggestion-message {
+    color: #7f8c8d;
+    margin-bottom: 1.5rem !important;
+}
+
+.cart-items-count {
+    color: #2c3e50;
+    font-weight: 500 !important;
+}
+
+.discover-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem;
+}
+
+/* Add new styles for edit button */
+.edit-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .greeting-paper {
+        padding: 1.5rem;
+    }
+
+    .greeting-title {
+        font-size: 1.75rem !important;
+    }
+
+    .cart-items-count {
+        text-align: left;
+        margin-top: 1rem;
+    }
+
+    .edit-button-container {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 1rem;
+        text-align: right;
+    }
+}
+
+@media (max-width: 576px) {
+    .greeting-container {
+        padding: 0 0.5rem;
+    }
+
+    .greeting-paper {
+        padding: 1rem;
+    }
+
+    .greeting-title {
+        font-size: 1.5rem !important;
+    }
+
+    .edit-button-container {
+        text-align: left;
+    }
+}

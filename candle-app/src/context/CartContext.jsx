@@ -8,9 +8,19 @@ const CartProvider = ({ children }) => {
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
+  const [customerName, setCustomerName] = useState(() => {
+    return localStorage.getItem('customerName') || '';
+  });
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    if (customerName) {
+      localStorage.setItem('customerName', customerName);
+    }
+  }, [customerName]);
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -43,7 +53,15 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, updateCart, removeFromCart, clearCart }}
+      value={{ 
+        cart, 
+        addToCart, 
+        updateCart, 
+        removeFromCart, 
+        clearCart,
+        customerName,
+        setCustomerName
+      }}
     >
       {children}
     </CartContext.Provider>
