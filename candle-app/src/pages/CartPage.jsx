@@ -8,15 +8,14 @@ import { formatPrice } from '../utils/formatPrice';
 import { openWhatsApp } from '../utils/whatsappHelper';
 import CartGreeting from '../components/CartGreeting/CartGreeting';
 import ClearCartModal from '../components/Modals/ClearCartModal';
-import NameInputModal from '../components/Modals/NameInputModal';
+import EditNameModal from '../components/Modals/EditNameModal';
 import CheckoutModal from '../components/Modals/CheckoutModal';
 
 const CartPage = () => {
-  const { cart, clearCart, customerName, setCustomerName } = useCart();
+  const { cart, clearCart, customerName } = useCart();
   const [showClearModal, setShowClearModal] = useState(false);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [showNameModal, setShowNameModal] = useState(false);
-  const [tempName, setTempName] = useState('');
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -37,14 +36,6 @@ const CartPage = () => {
     if (!customerName) {
       setShowNameModal(true);
     } else {
-      setShowCheckoutModal(true);
-    }
-  };
-
-  const handleNameSubmit = () => {
-    if (tempName.trim()) {
-      setCustomerName(tempName.trim());
-      setShowNameModal(false);
       setShowCheckoutModal(true);
     }
   };
@@ -86,12 +77,9 @@ const CartPage = () => {
             onClear={handleClearCart}
           />
 
-          <NameInputModal
+          <EditNameModal
             show={showNameModal}
             onHide={handleNameModalHide}
-            onSubmit={handleNameSubmit}
-            name={tempName}
-            onNameChange={setTempName}
           />
 
           <CheckoutModal

@@ -17,7 +17,7 @@ const AddToCartButton = ({ product }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="add-to-cart-button">
+      <Button variant="primary" onClick={handleShow}>
         <ShoppingCartIcon />
       </Button>
 
@@ -28,7 +28,7 @@ const AddToCartButton = ({ product }) => {
         <Modal.Body>
           You want to add {product.name} to your cart?
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="justify-content-between">
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>

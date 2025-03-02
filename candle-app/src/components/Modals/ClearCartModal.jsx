@@ -12,7 +12,7 @@ const ClearCartModal = ({ show, onHide, onClear }) => (
         Are you sure you want to remove all items from your cart? You can always add them back later if you change your mind.
       </p>
     </Modal.Body>
-    <Modal.Footer>
+    <Modal.Footer className="justify-content-between">
       <Button variant="secondary" onClick={onHide}>
         Keep Items
       </Button>

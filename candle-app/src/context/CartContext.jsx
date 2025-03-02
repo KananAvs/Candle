@@ -8,7 +8,7 @@ const CartProvider = ({ children }) => {
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
-  const [customerName, setCustomerName] = useState(() => {
+  const [customerName, setCustName] = useState(() => {
     return localStorage.getItem('customerName') || '';
   });
 
@@ -49,6 +49,15 @@ const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
+  };
+
+  const setCustomerName = (name) => {
+    if (name) {
+      localStorage.setItem('customerName', name);
+    } else {
+      localStorage.removeItem('customerName');
+    }
+    setCustName(name);
   };
 
   return (

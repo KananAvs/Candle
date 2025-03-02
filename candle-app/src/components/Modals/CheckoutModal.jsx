@@ -16,7 +16,7 @@ const CheckoutModal = ({ show, onHide, onCheckout }) => (
         This will open WhatsApp so you can send your order details directly to the seller.
       </p>
     </Modal.Body>
-    <Modal.Footer>
+    <Modal.Footer className="justify-content-between">
       <Button variant="secondary" onClick={onHide}>
         Cancel
       </Button>

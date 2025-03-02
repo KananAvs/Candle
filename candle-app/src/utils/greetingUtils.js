@@ -1,53 +1,60 @@
 export const getTimeBasedGreeting = () => {
   const hour = new Date().getHours();
-  if (hour < 12) return 'Good morning';
-  if (hour < 17) return 'Good afternoon';
-  return 'Good evening';
+  const morningAdjectives = ['Rise and shine!', 'Good morning', 'Sunshine ready?', 'Fresh start!'];
+  const afternoonAdjectives = ['Lovely afternoon', 'Awesome day', 'Good afternoon', 'Productive day'];
+  const eveningAdjectives = ['Cozy evening', 'Good evening', 'Wonderful night', 'Peaceful night'];
+
+  const period = hour < 12 ? morningAdjectives :
+    hour < 17 ? afternoonAdjectives : eveningAdjectives;
+  
+  return period[Math.floor(Math.random() * period.length)];
 };
 
 export const getDayBasedMessage = () => {
-  const days = [
-    'Perfect Sunday to light up your space!',
-    'Starting the week with wonderful scents!',
-    'Tuesday is for transforming your ambiance!',
-    "Wednesday's gentle glow awaits you!",
-    'Add some warmth to your Thursday!',
-    "It's Friday - time for some aromatic bliss!",
-    'Saturday self-care with soothing scents!'
-  ];
-  return days[new Date().getDay()];
+  const dayMessages = {
+    0: ["Sunday serenity needs a special scent!", "Unwind with aromatic bliss this Sunday!", "Perfect Sunday to refresh your space 🌿"],
+    1: ["Monday magic starts with good scents ✨", "Fresh week, fresh fragrances!", "Kickstart your week with calming aromas"],
+    2: ["Turn Tuesday into a sensory adventure!", "Midweek mood needs magical scents 🌸", "Tuesday tranquility starts here"],
+    3: ["Wednesday wellness with warm glows 🕯️", "Hump day happiness in every scent", "Midweek refresh for your space"],
+    4: ["Thursday therapy through fragrance 🌼", "Almost there! Treat your senses", "Thursday vibes need aromatic love"],
+    5: ["Friday feels deserve fabulous scents! 🎉", "Weekend prep with perfect perfumes", "TGIF! Time to scent celebrate"],
+    6: ["Saturday self-care starts here 💆♀️", "Weekend wonder with wonderful aromas", "Scented Saturday relaxation time"]
+  };
+
+  const dayIndex = new Date().getDay();
+  return dayMessages[dayIndex][Math.floor(Math.random() * dayMessages[dayIndex].length)];
 };
 
 export const getCartMessage = (cartItems) => {
   if (cartItems.length === 0) return null;
-  
+
   const itemNames = cartItems.map(item => item.name);
-  
+  const compliments = ["brilliant pick!", "lovely choice!", "excellent selection!", "nose-approved pick! 👃"];
+
   if (cartItems.length === 1) {
-    return `Ah, ${itemNames[0]} is a lovely choice! Its ${getItemDescription(cartItems[0])}`;
+    return `${itemNames[0]} is a ${compliments[Math.floor(Math.random() * compliments.length)]} ${cartItems[0].description}`;
   }
-  
+
   if (cartItems.length === 2) {
-    return `${itemNames[0]} and ${itemNames[1]} make a wonderful combination!`;
+    const combinations = ["dream team!", "perfect pair!", "scent soulmates!", "magical combo!"];
+    return `${itemNames[0]} + ${itemNames[1]} = ${combinations[Math.floor(Math.random() * combinations.length)]} 🔥`;
   }
-  
+
   const remainingCount = cartItems.length - 2;
-  return `${itemNames[0]}, ${itemNames[1]}, and ${remainingCount} more delightful ${
-    remainingCount === 1 ? 'candle' : 'candles'
-  } in your cart!`;
+  const reactions = ["impressive collection!", "scent party!", "aroma festival!", "fragrance fiesta!"];
+  return `${itemNames.slice(0, 2).join(', ')}, and ${remainingCount} more... ${reactions[Math.floor(Math.random() * reactions.length)]} 🎉`;
 };
 
 export const getEmptyCartMessage = (products) => {
-  const lastTwoProducts = products.slice(-2);
-  return `Discover our latest arrivals like ${lastTwoProducts[0].name} and ${lastTwoProducts[1].name}!`;
-};
+  const suggestions = [
+    "Your scent journey awaits! Try our",
+    "Empty cart, full potential! Explore",
+    "Let's find your signature scent:",
+    "Fresh start! How about"
+  ];
 
-const getItemDescription = (item) => {
-  const descriptions = {
-    'Teddy Bear': 'cozy warmth will make your day!',
-    'Dancing Lady': 'elegant fragrance will enchant your space!',
-    default: 'wonderful fragrance will enhance your space!'
-  };
+  const safeProducts = products.length >= 2 ? products : [...products, {name: 'new arrivals'}, {name: 'bestsellers'}];
+  const [last1, last2] = safeProducts.slice(-2);
   
-  return descriptions[item.name] || descriptions.default;
+  return `${suggestions[Math.floor(Math.random() * suggestions.length)]} ${last1.name} or ${last2.name}? 🛍️`;
 };
