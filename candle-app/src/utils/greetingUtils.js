@@ -1,60 +1,64 @@
-export const getTimeBasedGreeting = () => {
-  const hour = new Date().getHours();
-  const morningAdjectives = ['Rise and shine!', 'Good morning', 'Sunshine ready?', 'Fresh start!'];
-  const afternoonAdjectives = ['Lovely afternoon', 'Awesome day', 'Good afternoon', 'Productive day'];
-  const eveningAdjectives = ['Cozy evening', 'Good evening', 'Wonderful night', 'Peaceful night'];
+import useCart from '../hooks/useCart'; // Change from { useCart } to useCart
+import products from '../data/products.json'; // Import the products
 
-  const period = hour < 12 ? morningAdjectives :
-    hour < 17 ? afternoonAdjectives : eveningAdjectives;
+export const useGreetingMessages = () => {
+  const { cart, customerName } = useCart();
+  const now = new Date();
   
-  return period[Math.floor(Math.random() * period.length)];
-};
+  // Time-based components
+  const hour = now.getHours();
+  const dayIndex = now.getDay();
+  const month = now.getMonth();
+  const timePeriod = hour < 12 ? 'Morning' : hour < 17 ? 'Afternoon' : 'Evening';
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-export const getDayBasedMessage = () => {
-  const dayMessages = {
-    0: ["Sunday serenity needs a special scent!", "Unwind with aromatic bliss this Sunday!", "Perfect Sunday to refresh your space 🌿"],
-    1: ["Monday magic starts with good scents ✨", "Fresh week, fresh fragrances!", "Kickstart your week with calming aromas"],
-    2: ["Turn Tuesday into a sensory adventure!", "Midweek mood needs magical scents 🌸", "Tuesday tranquility starts here"],
-    3: ["Wednesday wellness with warm glows 🕯️", "Hump day happiness in every scent", "Midweek refresh for your space"],
-    4: ["Thursday therapy through fragrance 🌼", "Almost there! Treat your senses", "Thursday vibes need aromatic love"],
-    5: ["Friday feels deserve fabulous scents! 🎉", "Weekend prep with perfect perfumes", "TGIF! Time to scent celebrate"],
-    6: ["Saturday self-care starts here 💆♀️", "Weekend wonder with wonderful aromas", "Scented Saturday relaxation time"]
+  // Seasonal configuration
+  const getSeasonalGreeting = () => {
+    const seasons = [
+      { months: [11,0,1], adjectives: ['Cozy', 'Warm', 'Frosty'] },
+      { months: [2,3,4], adjectives: ['Fresh', 'Blooming', 'Vibrant'] },
+      { months: [5,6,7], adjectives: ['Sunny', 'Bright', 'Radiant'] },
+      { months: [8,9,10], adjectives: ['Crisp', 'Golden', 'Misty'] }
+    ];
+    const { adjectives } = seasons.find(s => s.months.includes(month));
+    return `${adjectives[hour % adjectives.length]} ${timePeriod}`;
   };
 
-  const dayIndex = new Date().getDay();
-  return dayMessages[dayIndex][Math.floor(Math.random() * dayMessages[dayIndex].length)];
-};
+  // Greeting composition
+  const greetingMessage = () => {
+    const seasonal = getSeasonalGreeting();
+    const dayTheme = {
+      0: 'serene Sunday', 1: 'fresh start', 2: 'balanced Tuesday',
+      3: 'wellness Wednesday', 4: 'productive Thursday', 
+      5: 'festive Friday', 6: 'self-care Saturday'
+    }[dayIndex];
+    
+    return `${seasonal}! Wishing you a ${dayTheme}${customerName ? `, ${customerName}` : ''}`;
+  };
 
-export const getCartMessage = (cartItems) => {
-  if (cartItems.length === 0) return null;
+  // Cart message logic
+  const cartMessage = () => {
+    if (cart.length === 0) {
+      const latestProducts = products.slice(-2);
+      if (latestProducts.length === 0) return "Explore our candle collection";
+      
+      const productList = latestProducts.map(p => p.name).join(' and ');
+      return `Your scent journey awaits! Discover our latest candles like ${productList}`;
+    }
 
-  const itemNames = cartItems.map(item => item.name);
-  const compliments = ["brilliant pick!", "lovely choice!", "excellent selection!", "nose-approved pick! 👃"];
+    const itemNames = cart.map(item => item.name);
+    const firstTwo = itemNames.slice(0, 2).join(' and ');
+    
+    switch(cart.length) {
+      case 1:
+        return `Excellent choice with ${firstTwo} - a wonderful aromatic companion!`;
+      case 2:
+        return `${firstTwo} create a perfectly harmonious scent combination!`;
+      default:
+        const remaining = cart.length - 2;
+        return `${firstTwo} and ${remaining} more carefully selected items - your perfect scent wardrobe!`;
+    }
+  };
 
-  if (cartItems.length === 1) {
-    return `${itemNames[0]} is a ${compliments[Math.floor(Math.random() * compliments.length)]} ${cartItems[0].description}`;
-  }
-
-  if (cartItems.length === 2) {
-    const combinations = ["dream team!", "perfect pair!", "scent soulmates!", "magical combo!"];
-    return `${itemNames[0]} + ${itemNames[1]} = ${combinations[Math.floor(Math.random() * combinations.length)]} 🔥`;
-  }
-
-  const remainingCount = cartItems.length - 2;
-  const reactions = ["impressive collection!", "scent party!", "aroma festival!", "fragrance fiesta!"];
-  return `${itemNames.slice(0, 2).join(', ')}, and ${remainingCount} more... ${reactions[Math.floor(Math.random() * reactions.length)]} 🎉`;
-};
-
-export const getEmptyCartMessage = (products) => {
-  const suggestions = [
-    "Your scent journey awaits! Try our",
-    "Empty cart, full potential! Explore",
-    "Let's find your signature scent:",
-    "Fresh start! How about"
-  ];
-
-  const safeProducts = products.length >= 2 ? products : [...products, {name: 'new arrivals'}, {name: 'bestsellers'}];
-  const [last1, last2] = safeProducts.slice(-2);
-  
-  return `${suggestions[Math.floor(Math.random() * suggestions.length)]} ${last1.name} or ${last2.name}? 🛍️`;
+  return { greetingMessage: greetingMessage(), cartMessage: cartMessage() };
 };
