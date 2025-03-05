@@ -16,12 +16,12 @@
 
 /* --- Global Button Styles --- */
 .btn {
-  border-radius: var(--radius-sm) !important;
+  border-radius: var(--radius-md) !important;
   transition: all var(--transition-speed) ease-in-out !important;
 }
 
 .btn:hover {
-  box-shadow: var(--shadow-md) !important;
+  box-shadow: var(--shadow-sm) !important;
   transform: scale(var(--scale-hover)) !important;
 }
 .btn:active {
@@ -44,8 +44,8 @@
 
 /* --- Global Container Styles --- */
 .glass-container {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: var(--radius-lg) !important;
   transition: all 0.3s ease-in-out;
@@ -54,7 +54,7 @@
 }
 
 .glass-container:hover {
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
   box-shadow: var(--shadow-md) !important;
 }
 
@@ -85,22 +85,12 @@ html {
 }
 
 /* --- Form Styles --- */
-.form-control {
+.form-control, .form-select {
   border-radius: var(--radius-md) !important;
   transition: all var(--transition-speed) ease-in-out !important;
 }
 
-.form-control:focus {
-  box-shadow: var(--shadow-sm) !important;
-  border-color: hsl(1, 100%, 70%) !important;
-}
-
-.form-select {
-  border-radius: var(--radius-md) !important;
-  transition: all var(--transition-speed) ease-in-out !important;
-}
-
-.form-select:focus {
+.form-control:focus, .form-select:focus {
   box-shadow: var(--shadow-sm) !important;
   border-color: hsl(1, 100%, 70%) !important;
 }

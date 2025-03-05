@@ -3,20 +3,22 @@
 }
 
 .cart-row {
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);  
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
   margin-bottom: 1rem;
   min-height: 150px;
   display: flex;
   cursor: pointer;
 }
 
+
 .cart-row:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 .cart-image {
@@ -55,15 +57,4 @@
   display: flex;
   align-items: center;
   padding-right: 1rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .cart-table {
-    padding: 0.5rem;
-  }
-  .cart-row {
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
 }

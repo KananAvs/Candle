@@ -15,7 +15,7 @@ const CartGreeting = () => {
 
   return (
     <Container className='glass-container'>
-      <h4>
+      <h4 className="my-4 text-center">
         {greetingMessage}
         <Button
           variant="outline-secondary"
@@ -26,7 +26,7 @@ const CartGreeting = () => {
           <Edit fontSize="small" />
         </Button>
       </h4>
-      <p className="lead mt-2">{cartMessage}</p>
+      <p className="lead text-center">{cartMessage}</p>
       {cart.length === 0 && (
         <div className="d-flex justify-content-center">
           <Button
