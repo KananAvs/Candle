@@ -83,3 +83,24 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* --- Form Styles --- */
+.form-control {
+  border-radius: var(--radius-md) !important;
+  transition: all var(--transition-speed) ease-in-out !important;
+}
+
+.form-control:focus {
+  box-shadow: var(--shadow-sm) !important;
+  border-color: hsl(1, 100%, 70%) !important;
+}
+
+.form-select {
+  border-radius: var(--radius-md) !important;
+  transition: all var(--transition-speed) ease-in-out !important;
+}
+
+.form-select:focus {
+  box-shadow: var(--shadow-sm) !important;
+  border-color: hsl(1, 100%, 70%) !important;
+}
