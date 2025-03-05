@@ -46,7 +46,7 @@ const CartPage = () => {
   };
 
   return (
-    <Container className="py-5">
+    <>
       <CartGreeting />
       {cart.length > 0 && (
         <>
@@ -89,7 +89,7 @@ const CartPage = () => {
           />
         </>
       )}
-    </Container>
+    </>
   );
 };
 
