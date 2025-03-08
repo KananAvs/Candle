@@ -24,7 +24,7 @@ Welcome to **Candle** – a lightweight, elegant e-commerce site built exclusive
 <a id="about"></a>
 ## 🔍 About
 
-**Candle** is a beautifully simple e-commerce website tailored for a candle shop. Built using modern tools like React and Vite, it provides a fast, responsive, and hassle-free shopping experience. With a clean design and a streamlined order process via WhatsApp, Candle makes browsing and purchasing your favorite candles effortless.
+**Candle** is a beautifully simple e-commerce website tailored for a candle shop. Built using modern tools like React 19 and Vite, it provides a fast, responsive, and hassle-free shopping experience. With a clean design and a streamlined order process via WhatsApp, Candle makes browsing and purchasing your favorite candles effortless.
 
 ###### [⬆️ Back to Table of Contents](#toc)
 ---
@@ -32,12 +32,15 @@ Welcome to **Candle** – a lightweight, elegant e-commerce site built exclusive
 <a id="features"></a>
 ## 🌟 Features
 
-- **Homepage:** Showcases your latest and most popular candles.
-- **Store Page:** Browse through the complete collection with detailed product displays.
-- **Cart Page:** Easily review, update, or remove items in your shopping cart.
-- **WhatsApp Order:** Clicking “Order” opens WhatsApp with a neatly formatted message containing your order details.
+- **Personalized Shopping Experience:** Customized greetings based on time of day and optional name personalization.
+- **Responsive Product Gallery:** Beautifully displayed product cards with hover animations and image scaling effects.
+- **Dynamic Search & Sorting:** Filter products by name or description and sort by price or date.
+- **Smart Cart Management:** Easily add, update quantities, or remove items with persistent storage between sessions.
+- **Detailed Product Pages:** Individual product pages with full descriptions and images.
+- **WhatsApp Checkout:** One-click ordering opens WhatsApp with a pre-formatted message containing your order details.
 - **No Registration Required:** Enjoy seamless shopping with cart data stored locally (via localStorage).
-- **Responsive Design:** Optimized for both desktop and mobile devices using React Bootstrap.
+- **Mobile-First Design:** Optimized experience across all device sizes.
+- **Beautiful UI Effects:** Glass morphism design elements, smooth animations, and responsive interactions.
 
 ###### [⬆️ Back to Table of Contents](#toc)
 ---
@@ -45,12 +48,28 @@ Welcome to **Candle** – a lightweight, elegant e-commerce site built exclusive
 <a id="technologies-used"></a>
 ## 🛠️ Technologies Used
 
-- **React:** For building the user interface.
-- **Vite:** A modern, fast build tool for a smooth development experience.
-- **React Bootstrap:** Ensures responsive, mobile-first design components.
-- **React Router DOM:** Provides seamless client-side routing.
-- **localStorage:** For persisting shopping cart data across sessions.
-- **WhatsApp API:** Enables order submissions via WhatsApp.
+- **Frontend Framework:**
+  - React 19.0.0
+  - React Router DOM 7.1.5
+
+- **UI Libraries:**
+  - React Bootstrap 2.10.9
+  - Material UI 6.4.4
+  - CSS Modules for component-scoped styling
+
+- **Build Tools:**
+  - Vite 6.1.0
+  - ESLint 9.19.0 for code quality
+
+- **State Management:**
+  - React Context API
+  - Custom hooks for reusable logic
+
+- **Storage:**
+  - localStorage for persistent cart and user data
+
+- **Deployment:**
+  - GitHub Pages via gh-pages package
 
 ###### [⬆️ Back to Table of Contents](#toc)
 ---
@@ -66,7 +85,7 @@ To run Candle locally, follow these steps:
     ```
 2. **Navigate to the project folder:**
     ```bash
-    cd Candle
+    cd Candle/candle-app
     ```
 3. **Install dependencies:**
     ```bash
@@ -74,9 +93,23 @@ To run Candle locally, follow these steps:
     ```
 4. **Run the development server:**
     ```bash
-    npm start
+    npm run dev
     ```
-5. Open your browser and visit `http://localhost:3000` to see the app in action!
+5. **Open your browser** and visit `http://localhost:5173/Candle/` to see the app in action!
+
+### Building for Production
+
+To build the app for production:
+
+```bash
+npm run build
+```
+
+### Deploying to GitHub Pages
+
+```bash
+npm run deploy
+```
 
 ###### [⬆️ Back to Table of Contents](#toc)
 ---
@@ -84,11 +117,40 @@ To run Candle locally, follow these steps:
 <a id="how-it-works"></a>
 ## 🚀 How It Works
 
-1. **Browse the Store:** Navigate to the store page to explore the candle selection.
-2. **Add to Cart:** Click “Add to Cart” on products you like.
-3. **Manage Your Cart:** Adjust quantities or remove items on the cart page.
-4. **Order via WhatsApp:** Hit “Order” to open WhatsApp with your order summary pre-filled.
-5. **Seamless Experience:** Enjoy a fast, single-page application where cart data is saved locally without registration.
+1. **Home Page Experience:**
+   - View featured candles in the carousel
+   - Click on any product to see its details
+
+2. **Browse the Store:**
+   - Navigate to the store page to explore the full candle collection
+   - Search by product name or description
+   - Sort products by price or date
+   - Use the pagination to navigate through results
+
+3. **Product Details:**
+   - Click on any product to see its detailed information
+   - View high-quality product images
+   - Read detailed descriptions
+   - Add directly to cart from the product page
+
+4. **Manage Your Cart:**
+   - Easily adjust quantities using + and - buttons
+   - Remove unwanted items
+   - See real-time price calculations
+   - View a personalized greeting that adapts to time of day
+
+5. **Personalization Features:**
+   - Add your name for a personalized shopping experience
+   - Receive custom greetings based on time of day and season
+
+6. **Order via WhatsApp:**
+   - Click "Checkout" to generate a formatted WhatsApp message
+   - Message includes all cart items, quantities, prices, and total
+   - Submit your order directly to the shop owner's WhatsApp
+
+7. **Data Persistence:**
+   - Cart contents are saved between sessions using localStorage
+   - User preferences like sorting options and name are remembered
 
 ###### [⬆️ Back to Table of Contents](#toc)
 ---
@@ -113,7 +175,15 @@ Contributions are welcome! If you have ideas for features, improvements, or bug 
     ```
 5. Open a new Pull Request.
 
-> **Tip:** For added clarity, consider including a short description of your changes in the Pull Request.
+### Development Guidelines
+
+- Follow the existing code style and component structure
+- Ensure cross-browser compatibility
+- Test on both mobile and desktop devices
+- Use CSS modules for component styling
+- Run ESLint before submitting code
+
+> **Tip:** For added clarity, consider including a short description and screenshots of your changes in the Pull Request.
 
 ###### [⬆️ Back to Table of Contents](#toc)
 ---
